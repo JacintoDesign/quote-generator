@@ -7,7 +7,9 @@ const loader = document.getElementById('loader');
 // Get quote from API
 function getQuote() {
     loading();
-    fetch('https://api.forismatic.com/api/1.0/?method=getQuote&lang=en&format=json')
+    const proxyUrl = 'https://jacinto-cors-proxy.herokuapp.com/';
+    const apiUrl = 'https://api.forismatic.com/api/1.0/?method=getQuote&lang=en&format=json';
+    fetch(proxyUrl + apiUrl)
     .then(res => res.json())
     .then(data => {
         console.log(data);
@@ -28,6 +30,7 @@ function getQuote() {
     })
     .catch(err => {
         getQuote();
+        //console.log(err);
     });
     setTimeout(complete, 500);
 }
