@@ -32,7 +32,9 @@ function getQuote() {
         getQuote();
         //console.log(err);
     });
-    setTimeout(complete, 500);
+    if (authorEl.innerHTML !== undefined) {
+        setTimeout(complete, 500);
+    }
 }
 
 // Tweet the quote
