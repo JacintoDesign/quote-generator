@@ -1,6 +1,8 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat&display=swap');
 
-* { box-sizing: border-box; }
+html { 
+    box-sizing: border-box; 
+}
 
 body {
     margin: 0;
@@ -21,7 +23,6 @@ body {
     width: auto;
 	max-width: 1000px;
 	padding: 20px 30px;
-	display: initial;
 	background-color: rgba(255, 255, 255, 0.4);
 	box-shadow: 0 10px 10px 10px rgba(0, 0, 0, 0.2); 
 }
@@ -31,7 +32,7 @@ body {
 }
 
 .long-quote {
-    font-size: 2rem !important;
+    font-size: 2rem;
 }
 
 .fa-quote-left {
@@ -70,42 +71,43 @@ button:active {
 }
 
 .twitter-button:hover {
-    color: #38A1F3 !important;
+    color: #38A1F3;
 }
 
 .fa-twitter {
     font-size: 1.5rem;
 }
 
-#loader {
-    visibility: hidden; 
+.loader {
     position: absolute;
     left: 50%;
     top: 50%;
     z-index: 1;
-    width: 150px;
-    height: 150px;
+    width: 120px;
+    height: 120px;
     margin: -75px 0 0 -75px;
     border: 16px solid #f3f3f3;
     border-radius: 50%;
     border-top: 16px solid #333;
-    width: 120px;
-    height: 120px;
-    -webkit-animation: spin 2s linear infinite;
     animation: spin 2s linear infinite;
 }
 
-@-webkit-keyframes spin {
-    0% { -webkit-transform: rotate(0deg); }
-    100% { -webkit-transform: rotate(360deg); }
-}
-  
 @keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
+    0% { 
+        transform: rotate(0deg);
+    }
+    100% { 
+        transform: rotate(360deg); 
+    }
 }
 
+/* Media Query: Tablet or Smaller */
 @media screen and (max-width: 1000px) {
-    .quote-container { margin: auto 10px; }
-    .quote-text { font-size: 2.5rem; }
+    .quote-container { 
+        margin: auto 10px; 
+    }
+
+    .quote-text { 
+        font-size: 2.5rem; 
+    }
 }
