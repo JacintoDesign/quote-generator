@@ -24,35 +24,32 @@ function complete() {
 }
 
 // Get Quote From API
-function getQuote() {
+async function getQuote() {
   loading();
   // We need to use a Proxy URL to make our API call in order to avoid a CORS error
   const proxyUrl = 'https://jacinto-cors-proxy.herokuapp.com/';
   const apiUrl = 'https://api.forismatic.com/api/1.0/?method=getQuote&lang=en&format=json';
-  fetch(proxyUrl + apiUrl)
-    .then((res) => res.json())
-    .then((data) => {
-      if (authorText.innerText !== undefined) {
-        // Check if Author field is blank and replace it with 'Unknown'
-        if (data.quoteAuthor === '') {
-          authorText.innerText = 'Unknown';
-        } else {
-          authorText.innerText = data.quoteAuthor;
-        }
-        // Dynamically reduce font size for long quotes
-        if (data.quoteText.length > 120) {
-          quoteText.classList.add('long-quote');
-        } else {
-          quoteText.classList.remove('long-quote');
-        }
-        quoteText.innerText = data.quoteText;
-        // Stop Loader, Show Quote
-        complete();
-      }
-    })
-    .catch(() => {
-      // Can be used to log errors, etc.
-    });
+  try {
+    const response = await fetch(proxyUrl + apiUrl);
+    const data = await response.json();
+    // Check if Author field is blank and replace it with 'Unknown'
+    if (data.quoteAuthor === '') {
+      authorText.innerText = 'Unknown';
+    } else {
+      authorText.innerText = data.quoteAuthor;
+    }
+    // Dynamically reduce font size for long quotes
+    if (data.quoteText.length > 120) {
+      quoteText.classList.add('long-quote');
+    } else {
+      quoteText.classList.remove('long-quote');
+    }
+    quoteText.innerText = data.quoteText;
+    // Stop Loader, Show Quote
+    complete();
+  } catch (error) {
+    getQuote();
+  }
 }
 
 // Tweet Quote
