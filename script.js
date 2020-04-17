@@ -47,12 +47,12 @@ function getQuote() {
       quoteText.innerText = data.quoteText;
     })
     .catch(() => {
-      // Can be used to log errors, etc. 
+      // Can be used to log errors, etc.
     });
 
   // Check to see if quote has loaded
   if (authorText.innerText !== undefined) {
-    // Timeout to give the loader a chance to spin at least half a second, 
+    // Timeout to give the loader a chance to spin at least half a second,
     // because some quotes take longer to load
     setTimeout(complete, 500);
   }
