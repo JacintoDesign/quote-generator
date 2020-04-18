@@ -4,10 +4,9 @@ An app that teaches the integration of an asynchronous fetch request through a P
 
 ## Step by Step
 
-- Draw elements on canvas
-- Use canvas paths to draw shapes
-- Add animation with requestAnimationFrame(cb)
-- Move paddle on arrow key press
-- Add collision detection
-- Keep score
-- Add rules button with slider
+- Use HeroPatterns for vetcor background
+- Add simple loading animation
+- Create project UI featuring FontAwesome
+- Show async fetch request and CORS error, fixing with Proxy API
+- Populate UI with quote from API, Twitter integration
+- Get new quotes, dynamically show/hide loader
