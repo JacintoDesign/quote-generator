@@ -6,7 +6,7 @@ An app that teaches the integration of an asynchronous fetch request through a P
 
 - Use HeroPatterns for vetcor background
 - Add simple loading animation
-- Create project UI featuring FontAwesome
+- Create project UI featuring FontAwesome icons
 - Show async fetch request and CORS error, fixing with Proxy API
 - Populate UI with quote from API, Twitter integration
 - Get new quotes, dynamically show/hide loader
