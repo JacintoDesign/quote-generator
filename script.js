@@ -8,17 +8,13 @@ const loader = document.getElementById('loader');
 // Loading Spinner Shown
 function loading() {
   loader.hidden = false;
-  quoteText.hidden = true;
   quoteContainer.hidden = true;
-  authorText.hidden = true;
 }
 
 // Remove Loading Spinner
 function complete() {
   if (!loader.hidden) {
     quoteContainer.hidden = false;
-    quoteText.hidden = false;
-    authorText.hidden = false;
     loader.hidden = true;
   }
 }
@@ -45,7 +41,7 @@ async function getQuote() {
       quoteText.classList.remove('long-quote');
     }
     quoteText.innerText = data.quoteText;
-    // Stop Loader, Show Quote
+    // Stop Loading, Show Quote
     complete();
   } catch (error) {
     getQuote();
@@ -60,7 +56,7 @@ function tweetQuote() {
   window.open(twitterUrl, '_blank');
 }
 
-// Event Handlers
+// Event Listeners
 newQuoteBtn.addEventListener('click', getQuote);
 twitterBtn.addEventListener('click', tweetQuote);
 
