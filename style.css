@@ -18,7 +18,7 @@ body {
   justify-content: center;
 }
 
-.quote-container {
+/* .quote-container {
   border-radius: 0.5rem;
   width: auto;
   max-width: 1000px;
@@ -76,10 +76,10 @@ button:active {
 
 .fa-twitter {
   font-size: 1.5rem;
-}
+} */
 
 /* Loader */
-.loader {
+/* .loader {
   border: 16px solid #f3f3f3;
   border-top: 16px solid #333;
   border-radius: 50%;
@@ -95,7 +95,7 @@ button:active {
   100% {
     transform: rotate(360deg);
   }
-}
+} */
 
 /* Media Query: Tablet or Smaller */
 @media screen and (max-width: 1000px) {

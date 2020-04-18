@@ -4,7 +4,7 @@ An app that teaches the integration of an asynchronous fetch request through a P
 
 ## Step by Step
 
-- Use HeroPatterns for vetcor background
+- Use HeroPatterns for vetcor background, Google Font
 - Add simple loading animation
 - Create project UI featuring FontAwesome icons
 - Show async fetch request and CORS error, fixing with Proxy API
