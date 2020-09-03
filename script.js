@@ -22,29 +22,26 @@ function complete() {
 // Get Quote From API
 async function getQuote() {
   loading();
-  // We need to use a Proxy URL to make our API call in order to avoid a CORS error
-  const proxyUrl = 'https://cors-anywhere.herokuapp.com/';
-  const apiUrl = 'https://api.forismatic.com/api/1.0/?method=getQuote&lang=en&format=json';
+  const apiUrl = 'https://type.fit/api/quotes';
   try {
-    const response = await fetch(proxyUrl + apiUrl);
-    const data = await response.json();
-    // Check if Author field is blank and replace it with 'Unknown'
-    if (data.quoteAuthor === '') {
-      authorText.innerText = 'Unknown';
-    } else {
-      authorText.innerText = data.quoteAuthor;
-    }
-    // Dynamically reduce font size for long quotes
-    if (data.quoteText.length > 120) {
+    const response = await fetch(apiUrl);
+    const allQuotes = await response.json();
+    // Pick a random quote from array
+    let quote = allQuotes[Math.floor(Math.random() * allQuotes.length)];
+    // Set Author
+    authorText.textContent = quote.author;
+    // Check Quote length to determine styling
+    if (quote.text.length > 120) {
       quoteText.classList.add('long-quote');
     } else {
       quoteText.classList.remove('long-quote');
     }
-    quoteText.innerText = data.quoteText;
-    // Stop Loading, Show Quote
+    // Set Quote
+    quoteText.textContent = quote.text;
+    // Hide Loader
     complete();
   } catch (error) {
-    getQuote();
+    // Catch Error Here
   }
 }
 
