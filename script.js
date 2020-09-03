@@ -21,19 +21,6 @@ function complete() {
   }
 }
 
-// Get Quotes From API
-async function getQuotes() {
-  loading();
-  const apiUrl = 'https://type.fit/api/quotes';
-  try {
-    const response = await fetch(apiUrl);
-    allQuotes = await response.json();
-    newQuote();
-  } catch (error) {
-    // Catch Error Here
-  }
-}
-
 // Show New Quote
 function newQuote() {
   loading();
@@ -54,6 +41,19 @@ function newQuote() {
   // Set Quote, Hide Loader
   quoteText.textContent = quote.text;
   complete();
+}
+
+// Get Quotes From API
+async function getQuotes() {
+  loading();
+  const apiUrl = 'https://type.fit/api/quotes';
+  try {
+    const response = await fetch(apiUrl);
+    allQuotes = await response.json();
+    newQuote();
+  } catch (error) {
+    // Catch Error Here
+  }
 }
 
 // Tweet Quote
