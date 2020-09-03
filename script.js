@@ -27,7 +27,7 @@ async function getQuote() {
     const response = await fetch(apiUrl);
     const allQuotes = await response.json();
     // Pick a random quote from array
-    let quote = allQuotes[Math.floor(Math.random() * allQuotes.length)];
+    const quote = allQuotes[Math.floor(Math.random() * allQuotes.length)];
     // Set Author
     authorText.textContent = quote.author;
     // Check Quote length to determine styling
