@@ -5,7 +5,7 @@ const twitterBtn = document.getElementById('twitter');
 const newQuoteBtn = document.getElementById('new-quote');
 const loader = document.getElementById('loader');
 
-let allQuotes = [];
+let apiQuotes = [];
 
 // Loading Spinner Shown
 function loading() {
@@ -23,7 +23,7 @@ function complete() {
 function newQuote() {
   loading();
   // Pick a random quote from array
-  const quote = allQuotes[Math.floor(Math.random() * allQuotes.length)];
+  const quote = apiQuotes[Math.floor(Math.random() * apiQuotes.length)];
   // Check if Author field is blank and replace it with 'Unknown'
   if (!quote.author) {
     authorText.textContent = 'Unknown';
@@ -47,7 +47,7 @@ async function getQuotes() {
   const apiUrl = 'https://type.fit/api/quotes';
   try {
     const response = await fetch(apiUrl);
-    allQuotes = await response.json();
+    apiQuotes = await response.json();
     newQuote();
   } catch (error) {
     // Catch Error Here
