@@ -15,10 +15,8 @@ function loading() {
 
 // Remove Loading Spinner
 function complete() {
-  if (!loader.hidden) {
-    quoteContainer.hidden = false;
-    loader.hidden = true;
-  }
+  quoteContainer.hidden = false;
+  loader.hidden = true;
 }
 
 // Show New Quote
