@@ -124,6 +124,7 @@ body {
   cursor: pointer;
   font-size: 1.6rem;
   font-weight: 600;
+  z-index: 10;
 
   background: -webkit-linear-gradient(
     left,
